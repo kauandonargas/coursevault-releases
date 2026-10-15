@@ -1,0 +1,72 @@
+name: Publicar CourseVault 1.1.6
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-1.1.6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Baixar instalador gerado
+        shell: pwsh
+        run: |
+          $url = 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-6964-820e-8866-6795aa059cac/raw?se=2026-10-15T04%3A18%3A58Z&sp=r&sv=2026-02-06&sr=b&scid=464aaf24-a634-5660-9da7-dee3161954d0&skoid=68f37fa7-4e08-478b-93f3-c72d563a0ab3&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-15T03%3A57%3A53Z&ske=2026-10-16T03%3A57%3A53Z&sks=b&skv=2026-02-06&sig=OEO5fTJxrQqhX5WQQTAaam/1t4ZqV7XfnFBL9jZ2dn0%3D'
+          Invoke-WebRequest -Uri $url -OutFile artifact.zip
+          Expand-Archive -Path artifact.zip -DestinationPath artifact -Force
+
+      - name: Validar SHA-256
+        shell: pwsh
+        run: |
+          $exe = 'artifact/CourseVault-Setup-1.1.6-x64.exe'
+          if (-not (Test-Path $exe)) { throw 'Instalador não encontrado no artefato.' }
+          $hash = (Get-FileHash -Path $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          $expected = '7b937ad7fba4e5c236115bfca8bccc393c83925c3d97daa2638ad6e4cb83c0a6'
+          if ($hash -ne $expected) { throw "SHA-256 inválido: $hash" }
+          Write-Host "SHA-256 validado: $hash"
+
+      - name: Criar GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.6 `
+            'artifact/CourseVault-Setup-1.1.6-x64.exe' `
+            'artifact/CourseVault-Setup-1.1.6-x64.exe.sha256' `
+            --title 'CourseVault 1.1.6' `
+            --notes 'Corrige a execução automática do instalador: o CourseVault passa a iniciar o NSIS diretamente em modo de atualização, fechar o aplicativo e deixar o instalador reabrir a versão nova.'
+
+      - name: Atualizar feed público
+        shell: pwsh
+        run: |
+          $publishedAt = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+          $manifest = [ordered]@{
+            schemaVersion = 1
+            product = 'CourseVault'
+            version = '1.1.6'
+            publishedAt = $publishedAt
+            installerUrl = 'https://github.com/kauandonargas/coursevault-releases/releases/download/v1.1.6/CourseVault-Setup-1.1.6-x64.exe'
+            sha256 = '7b937ad7fba4e5c236115bfca8bccc393c83925c3d97daa2638ad6e4cb83c0a6'
+            mandatory = $false
+            notes = @(
+              'Corrige o botão Instalar e reiniciar que fechava o CourseVault sem executar a atualização.',
+              'O instalador agora é iniciado diretamente pelo aplicativo, sem depender de um processo PowerShell intermediário.',
+              'Após a instalação silenciosa, o próprio instalador reabre o CourseVault atualizado.'
+            )
+          }
+          $manifest | ConvertTo-Json -Depth 5 | Set-Content update.json -Encoding utf8
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add update.json
+          git commit -m 'Atualiza feed para CourseVault 1.1.6'
+          git push
