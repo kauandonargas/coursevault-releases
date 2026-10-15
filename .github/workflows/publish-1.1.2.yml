@@ -1,0 +1,48 @@
+name: Publicar CourseVault 1.1.2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-1.1.2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Baixar instalador gerado
+        shell: pwsh
+        run: |
+          $url = 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-8f60-820e-998c-c78745ba6b63/raw?se=2026-10-15T01%3A10%3A12Z&sp=r&sv=2026-02-06&sr=b&scid=e3136d2f-ab65-56b7-891c-40a94de9e7b6&skoid=68f37fa7-4e08-478b-93f3-c72d563a0ab3&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-10-14T12%3A28%3A13Z&ske=2026-10-15T12%3A28%3A13Z&sks=b&skv=2026-02-06&sig=yLgo6EpXcNv2r7nL85XOag%2BrGF6onP7yACYCmDM9HZ0%3D'
+          Invoke-WebRequest -Uri $url -OutFile artifact.zip
+          Expand-Archive -Path artifact.zip -DestinationPath artifact -Force
+
+      - name: Validar SHA-256
+        shell: pwsh
+        run: |
+          $exe = 'artifact/CourseVault-Setup-1.1.2-x64.exe'
+          if (-not (Test-Path $exe)) { throw 'Instalador não encontrado no artefato.' }
+          $hash = (Get-FileHash -Path $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          $expected = '8259cf12ec90c86faef57cbcb93a2eea1a01d8819bb9309449491159430f5926'
+          if ($hash -ne $expected) { throw "SHA-256 inválido: $hash" }
+          Write-Host "SHA-256 validado: $hash"
+
+      - name: Criar GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete v1.1.2 --yes 2>$null
+          gh release create v1.1.2 `
+            'artifact/CourseVault-Setup-1.1.2-x64.exe' `
+            'artifact/CourseVault-Setup-1.1.2-x64.exe.sha256' `
+            --title 'CourseVault 1.1.2' `
+            --notes 'Versão de teste do atualizador interno. Exibe um aviso grande TESTE 1.1.2 para confirmar visualmente que a atualização foi instalada.'
