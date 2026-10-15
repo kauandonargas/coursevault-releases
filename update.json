@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "product": "CourseVault",
+  "version": "1.1.2",
+  "publishedAt": "2026-10-15T01:07:25Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.1.2/CourseVault-Setup-1.1.2-x64.exe",
+  "sha256": "8259cf12ec90c86faef57cbcb93a2eea1a01d8819bb9309449491159430f5926",
+  "mandatory": false,
+  "notes": [
+    "Teste completo do atualizador interno.",
+    "Ao concluir a instalação, o CourseVault 1.1.2 mostra um aviso grande na tela para confirmar visualmente que a atualização funcionou.",
+    "O instalador foi gerado automaticamente no Windows pelo GitHub Actions e validado por SHA-256."
+  ]
+}
