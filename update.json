@@ -1,14 +1,15 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.1.3",
-  "publishedAt": "2026-10-15T01:44:24Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.1.3/CourseVault-Setup-1.1.3-x64.exe",
-  "sha256": "73afe8a380fe6537e4a10e527b0ad74021329f129f805d3abe2e70dc35979fa8",
+  "version": "1.1.4",
+  "publishedAt": "2026-10-15T02:42:30Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.1.4/CourseVault-Setup-1.1.4-x64.exe",
+  "sha256": "6d3a6c38c4a3f451471d769ce72dd8b8df5cee03d3f8169842c3519af544bddc",
   "mandatory": false,
   "notes": [
-    "Remove a faixa amarela de teste da versão 1.1.2.",
-    "A instalação iniciada pelo CourseVault passa a ser silenciosa.",
-    "O CourseVault fecha durante a atualização e abre novamente ao terminar."
+    "A tela de vínculo com o Prisma agora mostra uma galeria visual de materiais.",
+    "Aulas exibem miniaturas geradas automaticamente a partir do próprio vídeo.",
+    "PDFs exibem a capa ou a primeira página.",
+    "Busca e filtros mostram curso, módulo e progresso para facilitar a escolha."
   ]
 }
