@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.1.5",
-  "publishedAt": "2026-10-15T03:58:14Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.1.5/CourseVault-Setup-1.1.5-x64.exe",
-  "sha256": "1876dda64980e0ace2de2cf1b0a8aadfef5e879a1792116ad13fd2fb18afa922",
+  "version": "1.1.6",
+  "publishedAt": "2026-10-15T04:15:26Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.1.6/CourseVault-Setup-1.1.6-x64.exe",
+  "sha256": "7b937ad7fba4e5c236115bfca8bccc393c83925c3d97daa2638ad6e4cb83c0a6",
   "mandatory": false,
   "notes": [
-    "Corrige o ciclo em que Instalar e reiniciar voltava para a mesma versão.",
-    "O instalador de atualização agora usa o modo NSIS one-click, próprio para atualização silenciosa.",
-    "Mantém a galeria visual de vínculo com o Prisma da versão 1.1.4."
+    "Corrige o botão Instalar e reiniciar que fechava o CourseVault sem executar a atualização.",
+    "O instalador agora é iniciado diretamente pelo aplicativo, sem depender de um processo PowerShell intermediário.",
+    "Após a instalação silenciosa, o próprio instalador reabre o CourseVault atualizado."
   ]
 }
