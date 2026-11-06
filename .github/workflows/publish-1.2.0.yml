@@ -1,0 +1,74 @@
+name: Publicar CourseVault 1.2.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-1.2.0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar instalador do build Windows aprovado
+        env:
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-9218-820e-befe-6133fdcbdb76/raw?se=2026-11-06T01%3A16%3A34Z&sp=r&sv=2026-02-06&sr=b&scid=de240cc8-5fcd-55af-910d-8f88b76f867f&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-05T04%3A02%3A49Z&ske=2026-11-06T04%3A02%3A49Z&sks=b&skv=2026-02-06&sig=NEvNCoQDmE31is9%2BslvDP9EnC1mlqILAKew9mvg6kOw%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --output artifact.zip "$ARTIFACT_URL"
+          unzip -q artifact.zip -d artifact
+          ls -lh artifact
+      - name: Validar SHA-256 do instalador
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd artifact
+          echo "6a1fd5c5c05c8b0bcfde944a22105979b5e50343fd46c5eed7b910219a1b74bc  CourseVault-Setup-1.2.0-x64.exe" | sha256sum --check -
+          sha256sum --check CourseVault-Setup-1.2.0-x64.exe.sha256
+      - name: Publicar release do Windows
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create v1.2.0 \
+            artifact/CourseVault-Setup-1.2.0-x64.exe \
+            artifact/CourseVault-Setup-1.2.0-x64.exe.sha256 \
+            --title "CourseVault 1.2.0" \
+            --notes "Nova aba Vídeos para pastas de vídeos avulsos; galeria de Artistas com catálogos e miniaturas; PDFs com modos Página e Contínua; aba Plugins removida do menu. Preferências e progresso preservados."
+      - name: Atualizar canal de atualização do CourseVault
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          manifest = {
+              "schemaVersion": 1,
+              "product": "CourseVault",
+              "version": "1.2.0",
+              "publishedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+              "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.2.0/CourseVault-Setup-1.2.0-x64.exe",
+              "sha256": "6a1fd5c5c05c8b0bcfde944a22105979b5e50343fd46c5eed7b910219a1b74bc",
+              "mandatory": False,
+              "notes": [
+                  "Novos modos Página e Contínua para leitura de PDFs, com preferência salva.",
+                  "Nova aba Vídeos para organizar e assistir vídeos avulsos de pastas locais.",
+                  "Nova aba Artistas com catálogos visuais, miniaturas locais e visualização ampliada.",
+                  "A aba Plugins saiu do menu, sem alterar os arquivos e dados existentes."
+              ],
+          }
+          with open("update.json", "w", encoding="utf-8") as f:
+              json.dump(manifest, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Publicar atualização CourseVault 1.2.0"
+          git push
