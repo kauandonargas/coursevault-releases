@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.4.1",
-  "publishedAt": "2026-11-07T06:13:29Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.1/CourseVault-Setup-1.4.1-x64.exe",
-  "sha256": "41c8b3dc230dbb451d2d95bbcba978b19d7fe563d2a56a78e0549562999f2747",
+  "version": "1.4.2",
+  "publishedAt": "2026-11-07T06:42:24Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.2/CourseVault-Setup-1.4.2-x64.exe",
+  "sha256": "fe7982d118fba9b21ef5de9b3a71ff11fcde03c4304c48f573bfb171432d988c",
   "mandatory": false,
   "notes": [
-    "Galerias de artistas agora carregam apenas miniaturas próximas da área visível.",
-    "Posições das imagens são reservadas antecipadamente, eliminando saltos de layout.",
-    "Falhas de miniaturas não fazem mais a grade carregar imagens originais gigantes.",
-    "Mesma navegação, visor de obras e menus de botão direito; dados preservados."
+    "Galeria de artistas volta a respeitar a proporção natural de cada obra, sem molduras artificiais.",
+    "Preparação das obras em blocos de 72, do topo para baixo e conforme você navega.",
+    "Miniaturas na tela têm prioridade; as distantes aguardam a rolagem.",
+    "Cache de dimensões por imagem e mosaico virtualizado preservam a estabilidade e o desempenho."
   ]
 }
