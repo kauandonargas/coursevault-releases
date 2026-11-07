@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.4.3",
-  "publishedAt": "2026-11-07T07:52:41Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.3/CourseVault-Setup-1.4.3-x64.exe",
-  "sha256": "0673e90cbfde783355253ef8403b0f6464d668d60f8b7dd2be9933663c736f47",
+  "version": "1.4.4",
+  "publishedAt": "2026-11-07T08:23:11Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.4/CourseVault-Setup-1.4.4-x64.exe",
+  "sha256": "156ca42600db50cedf42737375ab0c4f92e59b3226a366b24c2d5dbf175a1541",
   "mandatory": false,
   "notes": [
-    "Visor das obras centralizado e independente da rolagem.",
-    "Prévia otimizada de até 1800 px, sem carregar o original gigante diretamente na interface.",
-    "Botões Abrir original e Mostrar arquivo; mensagens claras em caso de falha.",
-    "Botão Todos os artistas agora acompanha a rolagem da galeria.",
-    "Mosaico natural, carregamento parcial, dados e progresso preservados."
+    "Abre obras diretamente na prévia ampliada, sem exibir uma miniatura menor primeiro.",
+    "Duplo clique amplia no ponto escolhido; roda, +/− e arrastar permitem inspecionar detalhes.",
+    "A partir de 180% de zoom, gera prévia de até 4096 px em segundo plano com cache.",
+    "Retorna à posição do artista na lista, sem voltar ao início.",
+    "Mosaico natural, miniaturas parciais, dados e arquivos originais preservados."
   ]
 }
