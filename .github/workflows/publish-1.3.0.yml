@@ -1,0 +1,75 @@
+name: Publicar CourseVault 1.3.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-1.3.0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar instalador do build Windows validado
+        env:
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-96a0-820e-966c-d50b0c2eda1a/raw?se=2026-11-07T05%3A01%3A14Z&sp=r&sv=2026-02-06&sr=b&scid=17017fc4-92ca-5229-b880-6e59a6766e78&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-07T00%3A20%3A43Z&ske=2026-11-08T00%3A20%3A43Z&sks=b&skv=2026-02-06&sig=HcOsghZQsqxhGy%2ByivO4gnvd%2BX4QXX5CfQIie1CNoPk%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --output artifact.zip "$ARTIFACT_URL"
+          unzip -q artifact.zip -d artifact
+          ls -lh artifact
+      - name: Validar SHA-256 do instalador
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd artifact
+          echo "e5aab6d1c7fa423c2fa45cca40c502dcef824af975b096ce7badf10d5c4e3071  CourseVault-Setup-1.3.0-x64.exe" | sha256sum --check -
+          sha256sum --check CourseVault-Setup-1.3.0-x64.exe.sha256
+      - name: Publicar release do Windows
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create v1.3.0 \
+            artifact/CourseVault-Setup-1.3.0-x64.exe \
+            artifact/CourseVault-Setup-1.3.0-x64.exe.sha256 \
+            --title "CourseVault 1.3.0" \
+            --notes "Menus de botão direito para vídeos, PDFs, cursos, artistas e obras; remover da biblioteca sem apagar, renomear, mover ou enviar à Lixeira com confirmação; barra de vídeos relacionados, loop, Picture-in-Picture, mini player e captura PNG. Dados e progresso preservados."
+      - name: Atualizar canal de atualização do CourseVault
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          manifest = {
+              "schemaVersion": 1,
+              "product": "CourseVault",
+              "version": "1.3.0",
+              "publishedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+              "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.3.0/CourseVault-Setup-1.3.0-x64.exe",
+              "sha256": "e5aab6d1c7fa423c2fa45cca40c502dcef824af975b096ce7badf10d5c4e3071",
+              "mandatory": False,
+              "notes": [
+                  "Menus de botão direito em vídeos, aulas, PDFs, cursos, artistas e obras.",
+                  "Remover da biblioteca sem apagar arquivos; restauração em Configurações.",
+                  "Renomear, mover e enviar arquivos para a Lixeira com confirmação.",
+                  "Barra lateral com vídeos relacionados na aba Vídeos.",
+                  "Loop, Picture-in-Picture, mini player e captura de quadro PNG."
+              ],
+          }
+          with open("update.json", "w", encoding="utf-8") as f:
+              json.dump(manifest, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Publicar atualização CourseVault 1.3.0"
+          git push
