@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.3.0",
-  "publishedAt": "2026-11-07T04:57:50Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.3.0/CourseVault-Setup-1.3.0-x64.exe",
-  "sha256": "e5aab6d1c7fa423c2fa45cca40c502dcef824af975b096ce7badf10d5c4e3071",
+  "version": "1.4.0",
+  "publishedAt": "2026-11-07T05:56:35Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.0/CourseVault-Setup-1.4.0-x64.exe",
+  "sha256": "393beec4abd14f53c147089287e6e94dddd6d8d57360f136dbb5ed0f8e9b996c",
   "mandatory": false,
   "notes": [
-    "Menus de botão direito em vídeos, aulas, PDFs, cursos, artistas e obras.",
-    "Remover da biblioteca sem apagar arquivos; restauração em Configurações.",
-    "Renomear, mover e enviar arquivos para a Lixeira com confirmação.",
-    "Barra lateral com vídeos relacionados na aba Vídeos.",
-    "Loop, Picture-in-Picture, mini player e captura de quadro PNG."
+    "Vídeos avulsos agora têm uma página inicial dinâmica com destaques e sugestões.",
+    "Novas seções Continue assistindo, Para você, Descobertas, Favoritos e pastas.",
+    "Todos os vídeos continuam acessíveis na grade completa.",
+    "Geração local e opcional de legendas com FFmpeg, whisper.cpp e modelo Whisper.",
+    "Arquivos SRT/VTT existentes e legendas geradas são exibidos no player; suporte também ao MPV."
   ]
 }
