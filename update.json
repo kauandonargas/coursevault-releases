@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.4.4",
-  "publishedAt": "2026-11-07T08:23:11Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.4/CourseVault-Setup-1.4.4-x64.exe",
-  "sha256": "156ca42600db50cedf42737375ab0c4f92e59b3226a366b24c2d5dbf175a1541",
+  "version": "1.4.5",
+  "publishedAt": "2026-11-07T09:07:18Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.5/CourseVault-Setup-1.4.5-x64.exe",
+  "sha256": "9ef46ace419c3cc6b9517dd64e1cde5f562fc1178fa28b6f73b00b4cf70508f2",
   "mandatory": false,
   "notes": [
-    "Abre obras diretamente na prévia ampliada, sem exibir uma miniatura menor primeiro.",
-    "Duplo clique amplia no ponto escolhido; roda, +/− e arrastar permitem inspecionar detalhes.",
-    "A partir de 180% de zoom, gera prévia de até 4096 px em segundo plano com cache.",
-    "Retorna à posição do artista na lista, sem voltar ao início.",
-    "Mosaico natural, miniaturas parciais, dados e arquivos originais preservados."
+    "Exibe somente a resolução do arquivo original em pixels ao passar o mouse e no visor.",
+    "Ordenações por nome, tamanho em disco, resolução, largura, altura, proporção, data e formato.",
+    "Copiar arquivo original (Ctrl+C) para colar no Explorador ou em outro artista.",
+    "Colar imagens (Ctrl+V) na pasta física do artista, sem sobrescrever nomes existentes.",
+    "Galeria atualizada após colagem; mosaico natural, zoom e dados preservados."
   ]
 }
