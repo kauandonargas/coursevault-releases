@@ -1,16 +1,15 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.4.0",
-  "publishedAt": "2026-11-07T05:56:35Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.0/CourseVault-Setup-1.4.0-x64.exe",
-  "sha256": "393beec4abd14f53c147089287e6e94dddd6d8d57360f136dbb5ed0f8e9b996c",
+  "version": "1.4.1",
+  "publishedAt": "2026-11-07T06:13:29Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.1/CourseVault-Setup-1.4.1-x64.exe",
+  "sha256": "41c8b3dc230dbb451d2d95bbcba978b19d7fe563d2a56a78e0549562999f2747",
   "mandatory": false,
   "notes": [
-    "Vídeos avulsos agora têm uma página inicial dinâmica com destaques e sugestões.",
-    "Novas seções Continue assistindo, Para você, Descobertas, Favoritos e pastas.",
-    "Todos os vídeos continuam acessíveis na grade completa.",
-    "Geração local e opcional de legendas com FFmpeg, whisper.cpp e modelo Whisper.",
-    "Arquivos SRT/VTT existentes e legendas geradas são exibidos no player; suporte também ao MPV."
+    "Galerias de artistas agora carregam apenas miniaturas próximas da área visível.",
+    "Posições das imagens são reservadas antecipadamente, eliminando saltos de layout.",
+    "Falhas de miniaturas não fazem mais a grade carregar imagens originais gigantes.",
+    "Mesma navegação, visor de obras e menus de botão direito; dados preservados."
   ]
 }
