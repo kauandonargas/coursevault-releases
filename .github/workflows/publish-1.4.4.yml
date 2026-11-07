@@ -1,0 +1,75 @@
+name: Publicar CourseVault 1.4.4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-1.4.4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar instalador do build Windows aprovado
+        env:
+          ARTIFACT_URL: 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-08e4-820e-9098-9593e998e927/raw?se=2026-11-07T08%3A26%3A56Z&sp=r&sv=2026-02-06&sr=b&scid=7787c749-c096-5ca1-8833-0b9ac8c0125e&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-06T23%3A26%3A29Z&ske=2026-11-07T23%3A26%3A29Z&sks=b&skv=2026-02-06&sig=FETOLCJ0hURM8rhR%2BwdKK7SqFCAaL7ky3AXxR2Z6MuI%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --output artifact.zip "$ARTIFACT_URL"
+          unzip -q artifact.zip -d artifact
+          ls -lh artifact
+      - name: Validar SHA-256 do instalador
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd artifact
+          echo "156ca42600db50cedf42737375ab0c4f92e59b3226a366b24c2d5dbf175a1541  CourseVault-Setup-1.4.4-x64.exe" | sha256sum --check -
+          sha256sum --check CourseVault-Setup-1.4.4-x64.exe.sha256
+      - name: Publicar release do Windows
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create v1.4.4 \
+            artifact/CourseVault-Setup-1.4.4-x64.exe \
+            artifact/CourseVault-Setup-1.4.4-x64.exe.sha256 \
+            --title "CourseVault 1.4.4" \
+            --notes "Visor de artistas com zoom focal por duplo clique, roda do mouse, botões e arraste; prévia inicial direta, sem miniatura intermediária, e detalhe até 4096 px preparado sob demanda. Ao voltar à lista de artistas, restaura a posição da pasta explorada. Mosaico, dados e arquivos originais preservados."
+      - name: Atualizar canal de atualização do CourseVault
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          manifest={
+              "schemaVersion":1,
+              "product":"CourseVault",
+              "version":"1.4.4",
+              "publishedAt":datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z"),
+              "installerUrl":"https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.4/CourseVault-Setup-1.4.4-x64.exe",
+              "sha256":"156ca42600db50cedf42737375ab0c4f92e59b3226a366b24c2d5dbf175a1541",
+              "mandatory":False,
+              "notes":[
+                  "Abre obras diretamente na prévia ampliada, sem exibir uma miniatura menor primeiro.",
+                  "Duplo clique amplia no ponto escolhido; roda, +/− e arrastar permitem inspecionar detalhes.",
+                  "A partir de 180% de zoom, gera prévia de até 4096 px em segundo plano com cache.",
+                  "Retorna à posição do artista na lista, sem voltar ao início.",
+                  "Mosaico natural, miniaturas parciais, dados e arquivos originais preservados."
+              ]
+          }
+          with open("update.json","w",encoding="utf-8") as f:
+              json.dump(manifest,f,ensure_ascii=False,indent=2)
+              f.write("\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "Publicar atualização CourseVault 1.4.4"
+          git push
