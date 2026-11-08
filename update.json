@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.4.5",
-  "publishedAt": "2026-11-07T09:07:18Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.5/CourseVault-Setup-1.4.5-x64.exe",
-  "sha256": "9ef46ace419c3cc6b9517dd64e1cde5f562fc1178fa28b6f73b00b4cf70508f2",
+  "version": "1.4.6",
+  "publishedAt": "2026-11-08T12:55:26Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.6/CourseVault-Setup-1.4.6-x64.exe",
+  "sha256": "52ab3016bdc7f197df5260f18121a782e0c1a7b2c908b38b550e880b7b3988ae",
   "mandatory": false,
   "notes": [
-    "Exibe somente a resolução do arquivo original em pixels ao passar o mouse e no visor.",
-    "Ordenações por nome, tamanho em disco, resolução, largura, altura, proporção, data e formato.",
-    "Copiar arquivo original (Ctrl+C) para colar no Explorador ou em outro artista.",
-    "Colar imagens (Ctrl+V) na pasta física do artista, sem sobrescrever nomes existentes.",
-    "Galeria atualizada após colagem; mosaico natural, zoom e dados preservados."
+    "Nova home de videos com grade de capas originais, duracao, criador, progresso e colecoes.",
+    "VideoFlow 1.0.5 salva os downloads em pastas de colecao escolhidas pelo usuario.",
+    "Recomendacoes locais por historico, favoritos, termos de titulo, recencia e diversidade.",
+    "Filtros por colecao, nao assistidos, continuar, recentes e favoritos.",
+    "Nao recomendar retira da home sem apagar arquivo; titulos e legendas locais reconhecidos."
   ]
 }
