@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "CourseVault",
-  "version": "1.4.7",
-  "publishedAt": "2026-11-09T21:45:48Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.7/CourseVault-Setup-1.4.7-x64.exe",
-  "sha256": "25042db103e89fcb858f23c067be71e9a51c7c40db8bf8801297b7c88fb33e4f",
+  "version": "1.4.8",
+  "publishedAt": "2026-11-09T22:31:19Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.8/CourseVault-Setup-1.4.8-x64.exe",
+  "sha256": "8980a7599ecd0a989ac21c28586e2ceb53a02fd48420e80b2fd90575a8686024",
   "mandatory": false,
   "notes": [
-    "Legendas offline com um clique: FFmpeg, whisper.cpp e modelo Whisper base inclusos no instalador.",
-    "Não é necessário selecionar FFmpeg, executável Whisper ou arquivo de modelo.",
-    "A transcrição ocorre no seu computador, sem envio de áudio ou vídeo para a nuvem.",
-    "Configuração avançada opcional para usar ferramentas ou modelos próprios.",
-    "Todos os vídeos, coleções e dados da biblioteca são preservados."
+    "Corrige falha 3221225501 (0xC000001D) no motor de legendas do Windows.",
+    "Whisper recompilado com CPU x64 generica, sem depender de SSE4.2, BMI2 ou AVX.",
+    "Modelo Whisper completo e inferencia real verificados na compilacao Windows.",
+    "Legendas continuam geradas por um clique, offline, com FFmpeg e modelo inclusos.",
+    "A placa de video nao e necessaria; aceleracao por GPU nao faz parte desta versao."
   ]
 }
