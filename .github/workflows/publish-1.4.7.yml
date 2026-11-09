@@ -1,0 +1,72 @@
+name: Publicar CourseVault 1.4.7
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-1.4.7.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ENCODED_ASSET_URL: 'Imh0dHBzOi8vcmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2dpdGh1Yi1wcm9kdWN0aW9uLXJlbGVhc2UtYXNzZXQvMTQxOTk5MzM0OS83MzMwYThjMy1kZmQyLTRkNzAtYmJhNS1lMDQ5NGI0ZDQ5ZjY/c3A9ciZzdj0yMDE4LTExLTA5JnNyPWImc3ByPWh0dHBzJnNlPTIwMjYtMTEtMDlUMjIlM0EzOCUzQTQyWiZyc2NkPWF0dGFjaG1lbnQlM0IrZmlsZW5hbWUlM0RDb3Vyc2VWYXVsdC1TZXR1cC0xLjQuNy14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0wOVQyMSUzQTM3JTNBNTRaJnNrZT0yMDI2LTExLTA5VDIyJTNBMzglM0E0Mlomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPXFMVTE1TURldUhqT1U4REh0bzAlMkJyRHkxRmhSUElrckpFS240OGZ3JTJCQVFFJTNEJmp3dD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUpuYVhSb2RXSXVZMjl0SWl3aVlYVmtJam9pY21Wc1pXRnpaUzFoYzNObGRITXVaMmwwYUhWaWRYTmxjbU52Ym5SbGJuUXVZMjl0SWl3aWEyVjVJam9pYTJWNU1TSXNJbVY0Y0NJNk1UYzVOREkyTkRJMU5pd2libUptSWpveE56azBNall3TmpVMkxDSndZWFJvSWpvaWNtVnNaV0Z6WldGemMyVjBjSEp2WkhWamRHbHZiaTVpYkc5aUxtTnZjbVV1ZDJsdVpHOTNjeTV1WlhRaWZRLmg2dHkxUmJwaUw1Mkp2SW5FWXk5Nm9kSTFfWkFuc0VOR0lVNnYxMWM4V0kmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1hdHRhY2htZW50JTNCJTIwZmlsZW5hbWUlM0RDb3Vyc2VWYXVsdC1TZXR1cC0xLjQuNy14NjQuZXhlJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRm9jdGV0LXN0cmVhbSI='
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar instalador validado de CourseVault
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="$(printf '%s' "$ENCODED_ASSET_URL" | base64 --decode | tr -d '"')"
+          case "$URL" in https://release-assets.githubusercontent.com/*) ;; *) echo "URL de asset nao permitida"; exit 1;; esac
+          curl --fail --location --retry 3 --silent --show-error --output CourseVault-Setup-1.4.7-x64.exe "$URL"
+          echo "25042db103e89fcb858f23c067be71e9a51c7c40db8bf8801297b7c88fb33e4f  CourseVault-Setup-1.4.7-x64.exe" | sha256sum --check -
+          sha256sum CourseVault-Setup-1.4.7-x64.exe > CourseVault-Setup-1.4.7-x64.exe.sha256
+          ls -lh CourseVault-Setup-1.4.7-x64.exe
+      - name: Publicar release do Windows
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create v1.4.7 \
+            CourseVault-Setup-1.4.7-x64.exe \
+            CourseVault-Setup-1.4.7-x64.exe.sha256 \
+            --title "CourseVault 1.4.7" \
+            --notes "Legendas offline de um clique com FFmpeg, whisper.cpp e modelo Whisper base multilingue inclusos. Sem configuração manual, sem enviar áudio para a nuvem. Vídeos e dados preservados."
+      - name: Atualizar canal de versoes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from datetime import datetime,timezone
+          manifest={
+            "schemaVersion":1,
+            "product":"CourseVault",
+            "version":"1.4.7",
+            "publishedAt":datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z"),
+            "installerUrl":"https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.7/CourseVault-Setup-1.4.7-x64.exe",
+            "sha256":"25042db103e89fcb858f23c067be71e9a51c7c40db8bf8801297b7c88fb33e4f",
+            "mandatory":False,
+            "notes":[
+              "Legendas offline com um clique: FFmpeg, whisper.cpp e modelo Whisper base inclusos no instalador.",
+              "Não é necessário selecionar FFmpeg, executável Whisper ou arquivo de modelo.",
+              "A transcrição ocorre no seu computador, sem envio de áudio ou vídeo para a nuvem.",
+              "Configuração avançada opcional para usar ferramentas ou modelos próprios.",
+              "Todos os vídeos, coleções e dados da biblioteca são preservados."
+            ]
+          }
+          with open('update.json','w',encoding='utf-8') as f:
+            json.dump(manifest,f,ensure_ascii=False,indent=2)
+            f.write("\n")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add update.json
+          git commit -m 'Publicar atualizacao CourseVault 1.4.7'
+          git push
