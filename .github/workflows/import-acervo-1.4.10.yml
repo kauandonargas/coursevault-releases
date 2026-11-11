@@ -1,0 +1,74 @@
+name: Publicar Acervo 1.4.10 para atualizacao automatica
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-acervo-1.4.10.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ENCODED_ASSET_URL: 'aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5L2YzYmMzODgzLTYwZmQtNDA2MS1hYjNiLTZjZTA0MTMyMjNlZT9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xMVQwMiUzQTM5JTNBNTNaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjQuMTAteDY0LmV4ZSZyc2N0PWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFtJnNrb2lkPTk2YzJkNDEwLTU3MTEtNDNhMS1hZWRkLWFiMTk0N2FhN2FiMCZza3RpZD0zOThhNjY1NC05OTdiLTQ3ZTktYjEyYi05NTE1Yjg5NmI0ZGUmc2t0PTIwMjYtMTEtMTFUMDElM0EzOCUzQTU1WiZza2U9MjAyNi0xMS0xMVQwMiUzQTM5JTNBNTNaJnNrcz1iJnNrdj0yMDE4LTExLTA5JnNpZz1BeWFZcFE0RSUyRiUyQmVvSWZKN2xwcnU0eVVHN0lvaDBwVUlnMk5qMGpndWt0NCUzRCZqd3Q9ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjM01pT2lKbmFYUm9kV0l1WTI5dElpd2lZWFZrSWpvaWNtVnNaV0Z6WlMxaGMzTmxkSE11WjJsMGFIVmlkWE5sY21OdmJuUmxiblF1WTI5dElpd2lhMlY1SWpvaWEyVjVNU0lzSW1WNGNDSTZNVGM1TkRNMk5UWTROaXdpYm1KbUlqb3hOemswTXpZeU1EZzJMQ0p3WVhSb0lqb2ljbVZzWldGelpXRnpjMlYwY0hKdlpIVmpkR2x2Ymk1aWJHOWlMbU52Y21VdWQybHVaRzkzY3k1dVpYUWlmUS5JR0VXYkZTSUh3RTJCYWJ4YTJqX3d5dTRuanFybFBabWh0a05QdU01RnBVJnJlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249YXR0YWNobWVudCUzQiUyMGZpbGVuYW1lJTNEQWNlcnZvLVNldHVwLTEuNC4xMC14NjQuZXhlJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRm9jdGV0LXN0cmVhbQ=='
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar instalador ja testado com SHA-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="$(printf '%s' "$ENCODED_ASSET_URL" | base64 --decode | tr -d '"')"
+          case "$URL" in https://release-assets.githubusercontent.com/*|https://objects.githubusercontent.com/*) ;; *) echo "Host do asset nao permitido"; exit 1;; esac
+          curl --fail --location --retry 3 --silent --show-error --output Acervo-Setup-1.4.10-x64.exe "$URL"
+          echo "5553226b19154d031d45fa2be0ff6cdae1e0148d3135a5de295088c0ed1cbbbd  Acervo-Setup-1.4.10-x64.exe" | sha256sum --check -
+          sha256sum Acervo-Setup-1.4.10-x64.exe > Acervo-Setup-1.4.10-x64.exe.sha256
+      - name: Publicar release publica do Acervo
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view v1.4.10 --repo kauandonargas/coursevault-releases >/dev/null 2>&1; then
+            gh release upload v1.4.10 Acervo-Setup-1.4.10-x64.exe Acervo-Setup-1.4.10-x64.exe.sha256 --clobber --repo kauandonargas/coursevault-releases
+          else
+            gh release create v1.4.10 Acervo-Setup-1.4.10-x64.exe Acervo-Setup-1.4.10-x64.exe.sha256 \
+              --repo kauandonargas/coursevault-releases --title 'Acervo 1.4.10' \
+              --notes 'Categorias de PDFs sincronizadas com pastas reais; arquivos em subpastas; migracao de progresso e vinculos ao renomear categorias; nome Acervo. Legendas locais mantidas.'
+          fi
+          gh release view v1.4.10 --repo kauandonargas/coursevault-releases --json assets --jq '.assets[].name' | grep -Fx 'Acervo-Setup-1.4.10-x64.exe'
+      - name: Atualizar feed somente depois de publicar instalador valido
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from datetime import datetime,timezone
+          manifest = {
+            "schemaVersion":1,
+            "product":"Acervo",
+            "version":"1.4.10",
+            "publishedAt":datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z"),
+            "installerUrl":"https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.10/Acervo-Setup-1.4.10-x64.exe",
+            "sha256":"5553226b19154d031d45fa2be0ff6cdae1e0148d3135a5de295088c0ed1cbbbd",
+            "mandatory":False,
+            "notes":[
+              "Categorias de PDFs sincronizadas com pastas reais do Windows.",
+              "PDFs em subpastas e cursos com video agora aparecem na biblioteca.",
+              "Mover PDFs entre categorias ou devolver a pasta raiz.",
+              "Preserva progresso e vinculos ao renomear categorias pelo Acervo.",
+              "Nome do aplicativo padronizado para Acervo; legendas preservadas."
+            ]
+          }
+          with open("update.json","w",encoding="utf-8") as f:
+              json.dump(manifest,f,indent=2,ensure_ascii=False)
+              f.write("\n")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add update.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Ativar atualizacao automatica Acervo 1.4.10'
+            git push
+          fi
