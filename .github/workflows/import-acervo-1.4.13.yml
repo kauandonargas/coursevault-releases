@@ -1,0 +1,74 @@
+name: Publicar Acervo 1.4.13 para atualizacao automatica
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-acervo-1.4.13.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ENCODED_ASSET_URL: 'aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzJhMTY0YTExLTNiMWUtNDQ0Ny04MjRhLTZjOGFlZWUwZDQ4Yz9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xMVQwMyUzQTI2JTNBMTRaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjQuMTMteDY0LmV4ZSZyc2N0PWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFtJnNrb2lkPTk2YzJkNDEwLTU3MTEtNDNhMS1hZWRkLWFiMTk0N2FhN2FiMCZza3RpZD0zOThhNjY1NC05OTdiLTQ3ZTktYjEyYi05NTE1Yjg5NmI0ZGUmc2t0PTIwMjYtMTEtMTFUMDIlM0EyNSUzQTU3WiZza2U9MjAyNi0xMS0xMVQwMyUzQTI2JTNBMTRaJnNrcz1iJnNrdj0yMDE4LTExLTA5JnNpZz03NlF4Y3FQaG96JTJCMlBNVnNFaklsNkw2am5kWFRhaGxYSFJGSWN6bTY2M1klM0Qmand0PWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSm5hWFJvZFdJdVkyOXRJaXdpWVhWa0lqb2ljbVZzWldGelpTMWhjM05sZEhNdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRJaXdpYTJWNUlqb2lhMlY1TVNJc0ltVjRjQ0k2TVRjNU5ETTJPRGszTnl3aWJtSm1Jam94TnprME16WTFNemMzTENKd1lYUm9Jam9pY21Wc1pXRnpaV0Z6YzJWMGNISnZaSFZqZEdsdmJpNWliRzlpTG1OdmNtVXVkMmx1Wkc5M2N5NXVaWFFpZlEuRHdFaDRMOHNUb2JaY0ktRkpOSVdPRW5DSENEaGhONmMxeVROMVNwTENzMCZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0IlMjBmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjQuMTMteDY0LmV4ZSZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0='
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar e verificar instalador Acervo 1.4.13
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="$(printf '%s' "$ENCODED_ASSET_URL" | base64 --decode | tr -d '"')"
+          case "$URL" in https://release-assets.githubusercontent.com/*|https://objects.githubusercontent.com/*) ;; *) echo "Host nao autorizado"; exit 1;; esac
+          curl --fail --location --retry 3 --silent --show-error --output Acervo-Setup-1.4.13-x64.exe "$URL"
+          echo "7914f4725a0078cbcbab3d12ca82d348bc03cdcd38591ebae32a9b1018c64ece  Acervo-Setup-1.4.13-x64.exe" | sha256sum --check -
+          sha256sum Acervo-Setup-1.4.13-x64.exe > Acervo-Setup-1.4.13-x64.exe.sha256
+      - name: Publicar release publico validado
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view v1.4.13 --repo kauandonargas/coursevault-releases >/dev/null 2>&1; then
+            gh release upload v1.4.13 Acervo-Setup-1.4.13-x64.exe Acervo-Setup-1.4.13-x64.exe.sha256 --clobber --repo kauandonargas/coursevault-releases
+          else
+            gh release create v1.4.13 Acervo-Setup-1.4.13-x64.exe Acervo-Setup-1.4.13-x64.exe.sha256 \
+              --repo kauandonargas/coursevault-releases --title 'Acervo 1.4.13' \
+              --notes 'Corrige o erro prompt() is not supported ao criar/renomear pastas na Biblioteca. Novo formulário integrado ao Acervo. Mantem a galeria de capas, os arquivos originais e as ferramentas de legendas.'
+          fi
+          gh release view v1.4.13 --repo kauandonargas/coursevault-releases --json assets --jq '.assets[].name' | grep -Fx 'Acervo-Setup-1.4.13-x64.exe'
+      - name: Atualizar canal de versoes somente apos sucesso
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from datetime import datetime,timezone
+          data={
+            "schemaVersion":1,
+            "product":"Acervo",
+            "version":"1.4.13",
+            "publishedAt":datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z"),
+            "installerUrl":"https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.13/Acervo-Setup-1.4.13-x64.exe",
+            "sha256":"7914f4725a0078cbcbab3d12ca82d348bc03cdcd38591ebae32a9b1018c64ece",
+            "mandatory":False,
+            "notes":[
+              "Corrige erro prompt() is not supported ao clicar em Nova pasta.",
+              "Criar e renomear pastas agora usa uma janela de texto dentro do Acervo.",
+              "Corrige também os demais campos de renomeação e confirmação.",
+              "Mantém galeria de pastas com capas de livros e busca original de PDFs.",
+              "Não altera PDFs, vídeos, FFmpeg ou Whisper."
+            ]
+          }
+          with open("update.json","w",encoding="utf-8") as f:
+            json.dump(data,f,indent=2,ensure_ascii=False)
+            f.write("\n")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add update.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Ativar correcao Acervo 1.4.13 no atualizador automatico'
+            git push
+          fi
