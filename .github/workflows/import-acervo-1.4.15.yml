@@ -45,7 +45,7 @@ jobs:
           python3 - <<'PY'
           import json
           from datetime import datetime,timezone
-          manifest={"schemaVersion":1,"product":"Acervo","version":"1.4.15","installerUrl":"https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.15/Acervo-Setup-1.4.15-x64.exe","sha256":"de7074d50b8f6d7cec9d9ea4f4b0a62530665f1ffa47c902f6d235922f15449b","mandatory":false,"notes":["Agora é possível ocultar pastas indevidas somente da Biblioteca de PDFs.","O botão Ocultar não altera as pastas do Windows nem a área Cursos.","As pastas ocultas continuam ocultas após reiniciar e reanalisar; podem ser restauradas.","Bibliotecas que contêm exclusivamente cursos deixam de aparecer na área de PDFs.","Organização original do Windows, capas de livros e leitura de PDFs preservadas."]}
+          manifest=json.loads(r'''{"schemaVersion":1,"product":"Acervo","version":"1.4.15","installerUrl":"https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.15/Acervo-Setup-1.4.15-x64.exe","sha256":"de7074d50b8f6d7cec9d9ea4f4b0a62530665f1ffa47c902f6d235922f15449b","mandatory":false,"notes":["Agora é possível ocultar pastas indevidas somente da Biblioteca de PDFs.","O botão Ocultar não altera as pastas do Windows nem a área Cursos.","As pastas ocultas continuam ocultas após reiniciar e reanalisar; podem ser restauradas.","Bibliotecas que contêm exclusivamente cursos deixam de aparecer na área de PDFs.","Organização original do Windows, capas de livros e leitura de PDFs preservadas."]}''')
           manifest["publishedAt"]=datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z")
           with open("update.json","w",encoding="utf-8") as f:
               json.dump(manifest,f,indent=2,ensure_ascii=False)
