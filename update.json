@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.4.13",
-  "publishedAt": "2026-11-11T02:50:41Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.13/Acervo-Setup-1.4.13-x64.exe",
-  "sha256": "7914f4725a0078cbcbab3d12ca82d348bc03cdcd38591ebae32a9b1018c64ece",
+  "version": "1.4.14",
+  "publishedAt": "2026-11-11T03:42:43Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.14/Acervo-Setup-1.4.14-x64.exe",
+  "sha256": "b376fdb778be25d01a61d568303f342aa025e3a553e28f0c5933018fd0aa9a1b",
   "mandatory": false,
   "notes": [
-    "Corrige erro prompt() is not supported ao clicar em Nova pasta.",
-    "Criar e renomear pastas agora usa uma janela de texto dentro do Acervo.",
-    "Corrige também os demais campos de renomeação e confirmação.",
-    "Mantém galeria de pastas com capas de livros e busca original de PDFs.",
-    "Não altera PDFs, vídeos, FFmpeg ou Whisper."
+    "Biblioteca agora mostra a organização real de pastas e subpastas do Windows.",
+    "Pastas com PDFs aparecem com mosaicos de capas, sem misturar arquivos de subpastas diferentes.",
+    "Removidas funções extras de criar, renomear e excluir categorias no aplicativo.",
+    "Para organizar PDFs, use o Explorador do Windows e clique em Reanalisar.",
+    "Busca de PDFs original, cursos, vídeos, artistas e ferramentas de legendas preservados."
   ]
 }
