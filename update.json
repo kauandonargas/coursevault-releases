@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.4.12",
-  "publishedAt": "2026-11-11T02:31:22Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.12/Acervo-Setup-1.4.12-x64.exe",
-  "sha256": "fdb3b5bb8d5c8f0b0dfe6a2d032d2b8c9b07241c2813dc102e4d236300b36087",
+  "version": "1.4.13",
+  "publishedAt": "2026-11-11T02:50:41Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.13/Acervo-Setup-1.4.13-x64.exe",
+  "sha256": "7914f4725a0078cbcbab3d12ca82d348bc03cdcd38591ebae32a9b1018c64ece",
   "mandatory": false,
   "notes": [
-    "Biblioteca agora abre com cards visuais de pastas, como a galeria de Artistas.",
-    "Cada card mostra um mosaico de ate tres capas dos livros da pasta.",
-    "Crie, renomeie e gerencie pastas reais diretamente no Acervo.",
-    "Clique em uma pasta para ver seus PDFs ou use Todos os livros e Sem categoria.",
-    "Corrige a inclusao indevida de PDFs: pesquisa original da 1.4.9 preservada."
+    "Corrige erro prompt() is not supported ao clicar em Nova pasta.",
+    "Criar e renomear pastas agora usa uma janela de texto dentro do Acervo.",
+    "Corrige também os demais campos de renomeação e confirmação.",
+    "Mantém galeria de pastas com capas de livros e busca original de PDFs.",
+    "Não altera PDFs, vídeos, FFmpeg ou Whisper."
   ]
 }
