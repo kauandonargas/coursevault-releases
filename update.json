@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "product": "CourseVault",
-  "version": "1.4.8",
-  "publishedAt": "2026-11-09T22:31:19Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.8/CourseVault-Setup-1.4.8-x64.exe",
-  "sha256": "8980a7599ecd0a989ac21c28586e2ceb53a02fd48420e80b2fd90575a8686024",
+  "product": "Acervo",
+  "version": "1.4.10",
+  "publishedAt": "2026-11-11T01:55:50Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.10/Acervo-Setup-1.4.10-x64.exe",
+  "sha256": "5553226b19154d031d45fa2be0ff6cdae1e0148d3135a5de295088c0ed1cbbbd",
   "mandatory": false,
   "notes": [
-    "Corrige falha 3221225501 (0xC000001D) no motor de legendas do Windows.",
-    "Whisper recompilado com CPU x64 generica, sem depender de SSE4.2, BMI2 ou AVX.",
-    "Modelo Whisper completo e inferencia real verificados na compilacao Windows.",
-    "Legendas continuam geradas por um clique, offline, com FFmpeg e modelo inclusos.",
-    "A placa de video nao e necessaria; aceleracao por GPU nao faz parte desta versao."
+    "Categorias de PDFs sincronizadas com pastas reais do Windows.",
+    "PDFs em subpastas e cursos com video agora aparecem na biblioteca.",
+    "Mover PDFs entre categorias ou devolver a pasta raiz.",
+    "Preserva progresso e vinculos ao renomear categorias pelo Acervo.",
+    "Nome do aplicativo padronizado para Acervo; legendas preservadas."
   ]
 }
