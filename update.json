@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.4.15",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.15/Acervo-Setup-1.4.15-x64.exe",
-  "sha256": "de7074d50b8f6d7cec9d9ea4f4b0a62530665f1ffa47c902f6d235922f15449b",
+  "version": "1.4.16",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.16/Acervo-Setup-1.4.16-x64.exe",
+  "sha256": "2fa2f6da1dbba94ad1829817ee3a730f73d46423400bf181b4afaaccc1c45864",
   "mandatory": false,
   "notes": [
-    "Agora é possível ocultar pastas indevidas somente da Biblioteca de PDFs.",
-    "O botão Ocultar não altera as pastas do Windows nem a área Cursos.",
-    "As pastas ocultas continuam ocultas após reiniciar e reanalisar; podem ser restauradas.",
-    "Bibliotecas que contêm exclusivamente cursos deixam de aparecer na área de PDFs.",
-    "Organização original do Windows, capas de livros e leitura de PDFs preservadas."
+    "Na seção Vídeos, o botão Escolher um vídeo para mim sorteia vídeos da biblioteca local.",
+    "O sorteio não depende do histórico ou das recomendações; não repete imediatamente o anterior quando houver alternativas.",
+    "O vídeo sorteado mostra capa e título, com opções para assistir ou sortear outro.",
+    "Vídeos ocultos das recomendações ou removidos da biblioteca ficam fora do sorteio.",
+    "Cursos, PDFs, artistas e ferramentas de legendas permanecem inalterados."
   ],
-  "publishedAt": "2026-11-11T04:18:41Z"
+  "publishedAt": "2026-11-12T00:31:40Z"
 }
