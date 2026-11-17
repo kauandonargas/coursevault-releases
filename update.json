@@ -1,20 +1,18 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.5.0",
-  "publishedAt": "2026-11-17T22:32:06Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.5.0/Acervo-Setup-1.5.0-x64.exe",
-  "sha256": "bcf599bc186280f2c089f2315c40c33d4836bf27c93cec582790aa53d624d473",
+  "version": "1.6.0",
+  "publishedAt": "2026-11-17T23:23:16Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.6.0/Acervo-Setup-1.6.0-x64.exe",
+  "sha256": "5ccc624ffb6c5aca39956e1cbbb77a059f6c2d45e4955b19ceb34ada5b115a66",
   "mandatory": false,
   "notes": [
-    "Abas: Ctrl+clique, clique do meio ou “Abrir em nova aba” no menu abrem qualquer item em outra aba.",
-    "Barra de abas com voltar e avançar; cada aba tem o próprio histórico.",
-    "Atalhos: Ctrl+T, Ctrl+W, Ctrl+Tab, Ctrl+1…9, Ctrl+Shift+T reabre a aba fechada, Alt+← e Alt+→.",
-    "Cada aba lembra a rolagem, a pasta de PDFs, a sub-aba de Vídeos e a busca.",
-    "Ao trocar de aba o vídeo pausa; o miniplayer continua tocando entre as abas.",
-    "As abas voltam ao reabrir o Acervo (pode desligar em Configurações).",
-    "Vídeo já assistido (perto do fim) abre do zero; pela metade continua de onde parou.",
-    "Barrinha de progresso discreta nas miniaturas de vídeos e aulas.",
-    "Opção “Retomar vídeos de onde parei” em Configurações."
+    "As abas ficam na barra de título, na mesma linha de minimizar, maximizar e fechar.",
+    "Arraste o espaço vazio da barra para mover a janela; duplo clique maximiza.",
+    "Toda aba nova abre a página Nova aba: busca em tudo, as cinco seções e os itens abertos por último.",
+    "O menu lateral não ocupa mais a tela: abre por cima pelo botão ☰ no canto da barra.",
+    "O menu fecha ao escolher uma seção, com Esc ou clicando fora; Ctrl+clique abre a seção em outra aba.",
+    "O botão ☰ ganha um ponto quando há atualização disponível.",
+    "Conteúdo com a largura inteira da janela em todas as seções."
   ]
 }
