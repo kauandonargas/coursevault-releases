@@ -1,0 +1,106 @@
+name: Importar versão do Acervo
+
+# Caminho alternativo de publicação, usado quando o repositório privado não tem o
+# segredo COURSEVAULT_RELEASES_TOKEN para publicar aqui diretamente.
+#
+# Envie um branch "import/X.Y.Z" contendo import-request.json:
+#   {
+#     "assetUrlBase64": "<link temporário do instalador no release privado, em base64>",
+#     "manifest": { ...conteúdo do update.json gerado na compilação... }
+#   }
+# O fluxo baixa o instalador, confere o SHA-256 do manifesto, cria o release
+# público e só então ativa a versão no update.json lido pelo aplicativo.
+# O branch não precisa ser mesclado e pode ser apagado depois.
+on:
+  push:
+    branches: ['import/**']
+    paths: ['import-request.json']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: importar
+  cancel-in-progress: false
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Validar o pedido
+        id: pedido
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(jq -er '.manifest.version' import-request.json)"
+          sha="$(jq -er '.manifest.sha256' import-request.json)"
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Versão inválida"; exit 1; }
+          [[ "$sha" =~ ^[a-f0-9]{64}$ ]] || { echo "SHA-256 inválido"; exit 1; }
+          [ "$GITHUB_REF_NAME" = "import/$version" ] || { echo "O branch deve se chamar import/$version"; exit 1; }
+          file="Acervo-Setup-$version-x64.exe"
+          expected="https://github.com/$GH_REPO/releases/download/v$version/$file"
+          [ "$(jq -r '.manifest.installerUrl' import-request.json)" = "$expected" ] || { echo "installerUrl deve ser $expected"; exit 1; }
+          jq -e '.manifest.notes | type == "array" and length > 0' import-request.json >/dev/null || { echo "O manifesto precisa de notas"; exit 1; }
+          {
+            echo "version=$version"
+            echo "sha=$sha"
+            echo "file=$file"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Baixar o instalador e conferir o SHA-256
+        shell: bash
+        env:
+          FILE: ${{ steps.pedido.outputs.file }}
+          SHA: ${{ steps.pedido.outputs.sha }}
+        run: |
+          set -euo pipefail
+          url="$(jq -er '.assetUrlBase64' import-request.json | base64 --decode)"
+          case "$url" in
+            https://release-assets.githubusercontent.com/*|https://objects.githubusercontent.com/*) ;;
+            *) echo "O link do instalador não é de um release do GitHub"; exit 1;;
+          esac
+          curl --fail --location --retry 3 --silent --show-error --output "$FILE" "$url"
+          echo "$SHA  $FILE" | sha256sum --check -
+          echo "$SHA  $FILE" > "$FILE.sha256"
+
+      - name: Criar o release público
+        shell: bash
+        env:
+          VERSION: ${{ steps.pedido.outputs.version }}
+          FILE: ${{ steps.pedido.outputs.file }}
+        run: |
+          set -euo pipefail
+          jq -r '.manifest.notes[] | "- " + .' import-request.json > notas.md
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            gh release upload "v$VERSION" "$FILE" "$FILE.sha256" --clobber
+          else
+            gh release create "v$VERSION" "$FILE" "$FILE.sha256" --target main --title "Acervo $VERSION" --notes-file notas.md
+          fi
+          gh release view "v$VERSION" --json assets --jq '.assets[].name' | grep -Fx "$FILE"
+
+      - name: Ativar a versão no atualizador
+        shell: bash
+        env:
+          VERSION: ${{ steps.pedido.outputs.version }}
+        run: |
+          set -euo pipefail
+          current="$(gh api "repos/$GH_REPO/contents/update.json?ref=main")"
+          live="$(jq -r '.content' <<<"$current" | base64 --decode | jq -r '.version')"
+          # Nunca rebaixa o canal: reimportar uma versão antiga só repõe os arquivos do release.
+          if [ "$(printf '%s\n%s\n' "$live" "$VERSION" | sort -V | tail -1)" != "$VERSION" ]; then
+            echo "O canal já está na versão $live; update.json mantido." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          jq --arg now "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '.manifest | .publishedAt = $now' import-request.json > update.json
+          jq -n --arg message "Ativar atualização automática Acervo $VERSION" \
+                --arg content "$(base64 -w0 update.json)" \
+                --arg sha "$(jq -r '.sha' <<<"$current")" \
+                '{message: $message, content: $content, sha: $sha, branch: "main"}' > payload.json
+          gh api "repos/$GH_REPO/contents/update.json" --method PUT --input payload.json >/dev/null
+          echo "Acervo $VERSION publicado e ativado no atualizador." | tee -a "$GITHUB_STEP_SUMMARY"
