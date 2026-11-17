@@ -1,18 +1,19 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.6.0",
-  "publishedAt": "2026-11-17T23:23:16Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.6.0/Acervo-Setup-1.6.0-x64.exe",
-  "sha256": "5ccc624ffb6c5aca39956e1cbbb77a059f6c2d45e4955b19ceb34ada5b115a66",
+  "version": "1.7.0",
+  "publishedAt": "2026-11-17T23:58:52Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.0/Acervo-Setup-1.7.0-x64.exe",
+  "sha256": "3ef562d80e9d5f2d6278218daf3d9ed5ee4c33c6c8dfc0e53c1c4357b6399e96",
   "mandatory": false,
   "notes": [
-    "As abas ficam na barra de título, na mesma linha de minimizar, maximizar e fechar.",
-    "Arraste o espaço vazio da barra para mover a janela; duplo clique maximiza.",
-    "Toda aba nova abre a página Nova aba: busca em tudo, as cinco seções e os itens abertos por último.",
-    "O menu lateral não ocupa mais a tela: abre por cima pelo botão ☰ no canto da barra.",
-    "O menu fecha ao escolher uma seção, com Esc ou clicando fora; Ctrl+clique abre a seção em outra aba.",
-    "O botão ☰ ganha um ponto quando há atualização disponível.",
-    "Conteúdo com a largura inteira da janela em todas as seções."
+    "Arraste uma aba para fora da barra: ela vira uma janela nova onde você soltar, inclusive em outro monitor.",
+    "Arraste uma aba até a barra de outra janela para juntá-las; a janela que ficar vazia fecha.",
+    "Ctrl+N abre uma janela nova; o menu da aba tem “Mover para nova janela”.",
+    "Arraste as abas ao longo da barra para reordenar.",
+    "Progresso, nomes, itens ocultos e configurações ficam iguais em todas as janelas, na hora.",
+    "Reanalisar uma seção numa janela atualiza as outras.",
+    "Ao reabrir o Acervo, as janelas voltam com as mesmas abas, cada uma no seu monitor.",
+    "A página Nova aba ficou só com a busca e as cinco seções."
   ]
 }
