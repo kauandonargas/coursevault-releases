@@ -1,16 +1,18 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.4.17",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.17/Acervo-Setup-1.4.17-x64.exe",
-  "sha256": "f63752767191b36f98e4cab5a22f8fc0e9e9702d7d27840caf462595eb36264d",
+  "version": "1.4.18",
+  "publishedAt": "2026-11-17T01:42:00Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.18/Acervo-Setup-1.4.18-x64.exe",
+  "sha256": "ca779e7ff398859b11700901cd3d065447e93ef6239b9d3fb73030fa613e4696",
   "mandatory": false,
   "notes": [
-    "Nova seção Cenas para referências de filmes e séries.",
-    "Cada subpasta da pasta vinculada vira um card com as cenas do título.",
-    "Mesma galeria de Artistas: ordenação, zoom, copiar o original e colar imagens.",
-    "A busca geral encontra também vídeos, artistas e cenas.",
-    "A tela inicial mostra o total de vídeos e de imagens de referência."
-  ],
-  "publishedAt": "2026-11-17T01:19:57Z"
+    "A tela inicial mostra também vídeos em andamento, Artistas e Cenas, e esconde seções vazias.",
+    "Sortear uma obra ou uma cena: uma imagem ao acaso entre todas as pastas ou só dentro de uma.",
+    "No visualizador, “Sortear outra” (tecla R) continua o sorteio sem repetir a imagem anterior.",
+    "As categorias do menu lateral aparecem só em Início e Cursos.",
+    "Cada tela abre no topo, e a barra superior não encolhe mais em páginas longas.",
+    "Primeiro uso com atalhos para vincular cursos, vídeos, artistas e cenas.",
+    "Cursos, Biblioteca de PDFs, player e legendas permanecem inalterados."
+  ]
 }
