@@ -1,0 +1,21 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5L2U5MTViMmM3LWI0ODctNDhkZC04NTA5LTJhN2QyMTRlZjVjZj9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMCUzQTA1JTNBNDBaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjYuMC14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0xN1QyMyUzQTA0JTNBNDRaJnNrZT0yMDI2LTExLTE4VDAwJTNBMDUlM0E0MFomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPWt4OG55dFgxNE5nUkZxTDZyT1lOdkowMlJ0RXF5YkZoR2I0OFV5ZiUyQlFVWSUzRCZqd3Q9ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjM01pT2lKbmFYUm9kV0l1WTI5dElpd2lZWFZrSWpvaWNtVnNaV0Z6WlMxaGMzTmxkSE11WjJsMGFIVmlkWE5sY21OdmJuUmxiblF1WTI5dElpd2lhMlY1SWpvaWEyVjVNU0lzSW1WNGNDSTZNVGM1TkRrMk1UTTNNU3dpYm1KbUlqb3hOemswT1RVM056Y3hMQ0p3WVhSb0lqb2ljbVZzWldGelpXRnpjMlYwY0hKdlpIVmpkR2x2Ymk1aWJHOWlMbU52Y21VdWQybHVaRzkzY3k1dVpYUWlmUS5TU3N6UHJUVHM3bUZZZGxuaWQ3MUdxVWw3RVdVck1NR2ZIdzZseG9ONlBRJnJlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249YXR0YWNobWVudCUzQiUyMGZpbGVuYW1lJTNEQWNlcnZvLVNldHVwLTEuNi4wLXg2NC5leGUmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFt",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.6.0",
+    "publishedAt": "2026-11-17T23:21:59.061Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.6.0/Acervo-Setup-1.6.0-x64.exe",
+    "sha256": "5ccc624ffb6c5aca39956e1cbbb77a059f6c2d45e4955b19ceb34ada5b115a66",
+    "mandatory": false,
+    "notes": [
+      "As abas ficam na barra de título, na mesma linha de minimizar, maximizar e fechar.",
+      "Arraste o espaço vazio da barra para mover a janela; duplo clique maximiza.",
+      "Toda aba nova abre a página Nova aba: busca em tudo, as cinco seções e os itens abertos por último.",
+      "O menu lateral não ocupa mais a tela: abre por cima pelo botão ☰ no canto da barra.",
+      "O menu fecha ao escolher uma seção, com Esc ou clicando fora; Ctrl+clique abre a seção em outra aba.",
+      "O botão ☰ ganha um ponto quando há atualização disponível.",
+      "Conteúdo com a largura inteira da janela em todas as seções."
+    ]
+  }
+}
