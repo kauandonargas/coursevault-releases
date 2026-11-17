@@ -1,18 +1,20 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.4.18",
-  "publishedAt": "2026-11-17T01:42:00Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.18/Acervo-Setup-1.4.18-x64.exe",
-  "sha256": "ca779e7ff398859b11700901cd3d065447e93ef6239b9d3fb73030fa613e4696",
+  "version": "1.5.0",
+  "publishedAt": "2026-11-17T22:32:06Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.5.0/Acervo-Setup-1.5.0-x64.exe",
+  "sha256": "bcf599bc186280f2c089f2315c40c33d4836bf27c93cec582790aa53d624d473",
   "mandatory": false,
   "notes": [
-    "A tela inicial mostra também vídeos em andamento, Artistas e Cenas, e esconde seções vazias.",
-    "Sortear uma obra ou uma cena: uma imagem ao acaso entre todas as pastas ou só dentro de uma.",
-    "No visualizador, “Sortear outra” (tecla R) continua o sorteio sem repetir a imagem anterior.",
-    "As categorias do menu lateral aparecem só em Início e Cursos.",
-    "Cada tela abre no topo, e a barra superior não encolhe mais em páginas longas.",
-    "Primeiro uso com atalhos para vincular cursos, vídeos, artistas e cenas.",
-    "Cursos, Biblioteca de PDFs, player e legendas permanecem inalterados."
+    "Abas: Ctrl+clique, clique do meio ou “Abrir em nova aba” no menu abrem qualquer item em outra aba.",
+    "Barra de abas com voltar e avançar; cada aba tem o próprio histórico.",
+    "Atalhos: Ctrl+T, Ctrl+W, Ctrl+Tab, Ctrl+1…9, Ctrl+Shift+T reabre a aba fechada, Alt+← e Alt+→.",
+    "Cada aba lembra a rolagem, a pasta de PDFs, a sub-aba de Vídeos e a busca.",
+    "Ao trocar de aba o vídeo pausa; o miniplayer continua tocando entre as abas.",
+    "As abas voltam ao reabrir o Acervo (pode desligar em Configurações).",
+    "Vídeo já assistido (perto do fim) abre do zero; pela metade continua de onde parou.",
+    "Barrinha de progresso discreta nas miniaturas de vídeos e aulas.",
+    "Opção “Retomar vídeos de onde parei” em Configurações."
   ]
 }
