@@ -1,0 +1,62 @@
+name: Publicar Acervo 1.4.17 no atualizador
+on:
+  push:
+    branches: [import-acervo-1.4.17]
+    paths:
+      - '.github/workflows/import-acervo-1.4.17.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ENCODED_ASSET_URL: 'aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5L2ZhYmZlMDk4LTdiMWQtNDI1Ni1hNGI2LWZlNDA4MDA5NTA0Yz9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xN1QwMiUzQTE0JTNBMzhaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjQuMTcteDY0LmV4ZSZyc2N0PWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFtJnNrb2lkPTk2YzJkNDEwLTU3MTEtNDNhMS1hZWRkLWFiMTk0N2FhN2FiMCZza3RpZD0zOThhNjY1NC05OTdiLTQ3ZTktYjEyYi05NTE1Yjg5NmI0ZGUmc2t0PTIwMjYtMTEtMTdUMDElM0ExNCUzQTAxWiZza2U9MjAyNi0xMS0xN1QwMiUzQTE0JTNBMzhaJnNrcz1iJnNrdj0yMDE4LTExLTA5JnNpZz02WDZBRFFWeW9sdG4zT1g3bjNxdVI5NHpjNEVoZW9xWnp2SHlsbHlySmxBJTNEJmp3dD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUpuYVhSb2RXSXVZMjl0SWl3aVlYVmtJam9pY21Wc1pXRnpaUzFoYzNObGRITXVaMmwwYUhWaWRYTmxjbU52Ym5SbGJuUXVZMjl0SWl3aWEyVjVJam9pYTJWNU1TSXNJbVY0Y0NJNk1UYzVORGc0TVRrMU1Dd2libUptSWpveE56azBPRGM0TXpVd0xDSndZWFJvSWpvaWNtVnNaV0Z6WldGemMyVjBjSEp2WkhWamRHbHZiaTVpYkc5aUxtTnZjbVV1ZDJsdVpHOTNjeTV1WlhRaWZRLjNoY0RHR201UzMtV3hJT1pEYW1ZMG05S0tQNjlNNTE4TXNUVVZueTBfNnMmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1hdHRhY2htZW50JTNCJTIwZmlsZW5hbWUlM0RBY2Vydm8tU2V0dXAtMS40LjE3LXg2NC5leGUmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFt'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Transferir e verificar instalador Acervo 1.4.17
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="$(printf '%s' "$ENCODED_ASSET_URL" | base64 --decode | tr -d '"')"
+          case "$URL" in https://release-assets.githubusercontent.com/*|https://objects.githubusercontent.com/*) ;; *) echo "Host nao autorizado"; exit 1;; esac
+          curl --fail --location --retry 3 --silent --show-error --output Acervo-Setup-1.4.17-x64.exe "$URL"
+          echo "f63752767191b36f98e4cab5a22f8fc0e9e9702d7d27840caf462595eb36264d  Acervo-Setup-1.4.17-x64.exe" | sha256sum --check -
+          sha256sum Acervo-Setup-1.4.17-x64.exe > Acervo-Setup-1.4.17-x64.exe.sha256
+      - name: Publicar release publica
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view v1.4.17 --repo kauandonargas/coursevault-releases >/dev/null 2>&1; then
+            gh release upload v1.4.17 Acervo-Setup-1.4.17-x64.exe Acervo-Setup-1.4.17-x64.exe.sha256 --clobber --repo kauandonargas/coursevault-releases
+          else
+            gh release create v1.4.17 Acervo-Setup-1.4.17-x64.exe Acervo-Setup-1.4.17-x64.exe.sha256 \
+              --repo kauandonargas/coursevault-releases --target main --title 'Acervo 1.4.17' \
+              --notes 'Nova secao Cenas para referencias de filmes e series, com uma galeria por titulo. A busca geral tambem encontra videos, artistas e cenas.'
+          fi
+          gh release view v1.4.17 --repo kauandonargas/coursevault-releases --json assets --jq '.assets[].name' | grep -Fx 'Acervo-Setup-1.4.17-x64.exe'
+      - name: Ativar versao 1.4.17 no atualizador do Acervo
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f Acervo-Setup-1.4.17-x64.exe Acervo-Setup-1.4.17-x64.exe.sha256
+          python3 - <<'PY'
+          import json
+          from datetime import datetime,timezone
+          manifest=json.loads(r'''{"schemaVersion": 1, "product": "Acervo", "version": "1.4.17", "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.4.17/Acervo-Setup-1.4.17-x64.exe", "sha256": "f63752767191b36f98e4cab5a22f8fc0e9e9702d7d27840caf462595eb36264d", "mandatory": false, "notes": ["Nova seção Cenas para referências de filmes e séries.", "Cada subpasta da pasta vinculada vira um card com as cenas do título.", "Mesma galeria de Artistas: ordenação, zoom, copiar o original e colar imagens.", "A busca geral encontra também vídeos, artistas e cenas.", "A tela inicial mostra o total de vídeos e de imagens de referência."]}''')
+          manifest["publishedAt"]=datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z")
+          with open("update.json","w",encoding="utf-8") as f:
+              json.dump(manifest,f,indent=2,ensure_ascii=False)
+              f.write("\n")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add update.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Ativar atualizacao automatica Acervo 1.4.17'
+            git push origin HEAD:main
+          fi
