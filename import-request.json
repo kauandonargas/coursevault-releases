@@ -1,0 +1,16 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzYzN2U3ZmVjLTc2NzYtNDVkNy1hNjBjLTJiYmQwMzUwYTk3Mz9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMSUzQTA2JTNBNDZaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjcuMS14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0xOFQwMCUzQTA2JTNBMDhaJnNrZT0yMDI2LTExLTE4VDAxJTNBMDYlM0E0Nlomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPTVsWnclMkZDazJRT1lmOUNSY0RpWlclMkJCNiUyQkNqbWZYOW1UWEpFc2tpWWlKNTglM0Qmand0PWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSm5hWFJvZFdJdVkyOXRJaXdpWVhWa0lqb2ljbVZzWldGelpTMWhjM05sZEhNdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRJaXdpYTJWNUlqb2lhMlY1TVNJc0ltVjRjQ0k2TVRjNU5EazJORGcyTkN3aWJtSm1Jam94TnprME9UWXhNalkwTENKd1lYUm9Jam9pY21Wc1pXRnpaV0Z6YzJWMGNISnZaSFZqZEdsdmJpNWliRzlpTG1OdmNtVXVkMmx1Wkc5M2N5NXVaWFFpZlEuQ3h2dzRSTlVQRVBRcmdTQkpZRnRQYUNOX2I1YTBicmdDems2ck5HeFdDNCZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0IlMjBmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjcuMS14NjQuZXhlJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRm9jdGV0LXN0cmVhbQ==",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.7.1",
+    "publishedAt": "2026-11-18T00:19:48.367Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.1/Acervo-Setup-1.7.1-x64.exe",
+    "sha256": "8510405673e8ac86afd3d3b3e281a19e04de51f4e78d1e2477ea7171cee85af2",
+    "mandatory": false,
+    "notes": [
+      "A barra de abas fica sempre no topo, acima de tudo.",
+      "O visualizador de imagens e os diálogos abrem abaixo dela, sem ficar por baixo dos botões de minimizar, maximizar e fechar."
+    ]
+  }
+}
