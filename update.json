@@ -1,12 +1,15 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.8.1",
-  "publishedAt": "2026-11-18T01:54:37Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.8.1/Acervo-Setup-1.8.1-x64.exe",
-  "sha256": "6434fe85a3bbc054b59afacce1708ecc88cd55097f4ccb45e94d242f481fd49e",
+  "version": "1.9.0",
+  "publishedAt": "2026-11-18T02:03:28Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.9.0/Acervo-Setup-1.9.0-x64.exe",
+  "sha256": "b1682faf2ae9792ca1674c766fa90f47de161e8e815d6892768d88d62150f12b",
   "mandatory": false,
   "notes": [
-    "O editor de foco abre centralizado sobre a janela inteira, sem ficar cortado."
+    "O Prisma Art saiu do Acervo: nada de login nem de parte social dentro dele.",
+    "Saíram também os vínculos “Abrir no Prisma” nas aulas e nos PDFs.",
+    "Abas do Prisma que estavam abertas não voltam ao reabrir.",
+    "Focos fica como o lugar único da prática deliberada, para você montar do zero."
   ]
 }
