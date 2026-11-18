@@ -1,13 +1,18 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.7.2",
-  "publishedAt": "2026-11-18T00:33:05Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.2/Acervo-Setup-1.7.2-x64.exe",
-  "sha256": "81e236dc55512e5d3b131b3eff95e23d1bf82545c3a22937a6f91ba10ea35279",
+  "version": "1.8.0",
+  "publishedAt": "2026-11-18T01:19:30Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.8.0/Acervo-Setup-1.8.0-x64.exe",
+  "sha256": "ea4f572c006d2b84d6eeab58c0d9155540361b1588395b02792ff324eaedd2e2",
   "mandatory": false,
   "notes": [
-    "Ao clicar num vídeo ou aula, ele já começa a tocar (inclusive o próximo, quando um termina).",
-    "Voltar a uma aba, navegar pelo histórico ou reabrir o Acervo mantém o vídeo pausado no ponto salvo."
+    "Nova seção Focos: prática deliberada com revisão espaçada, como no app Focos.",
+    "Até três focos por vez; marque de 1 a 5 e o sistema decide quando cada um volta.",
+    "Botão direito numa cena ou obra → “Usar como referência de foco”, sem copiar o arquivo.",
+    "Importe seus focos do app Focos (botão “Exportar para o Acervo” nele), com imagens e histórico.",
+    "O Prisma Art abre numa aba, com login guardado; “Abrir no Prisma” não vai mais para o navegador.",
+    "Sites abertos numa aba continuam vivos ao trocar de aba; links de nova janela viram aba nova.",
+    "Atalhos e voltar/avançar funcionam também com o foco dentro de um site."
   ]
 }
