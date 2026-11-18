@@ -1,0 +1,21 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzBhOTljYWEwLTE3YWUtNGU5Ni04NmFjLTVjYzdlNWRhZjUxMj9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMiUzQTE4JTNBNDlaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjguMC14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0xOFQwMSUzQTE4JTNBMzlaJnNrZT0yMDI2LTExLTE4VDAyJTNBMTglM0E0OVomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPWR2SXhNT3MwQk1iMjM4VnRWSVpwQTdOUFllaDExS0V2WGoxJTJCUk16Q2xoMCUzRCZqd3Q9ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjM01pT2lKbmFYUm9kV0l1WTI5dElpd2lZWFZrSWpvaWNtVnNaV0Z6WlMxaGMzTmxkSE11WjJsMGFIVmlkWE5sY21OdmJuUmxiblF1WTI5dElpd2lhMlY1SWpvaWEyVjVNU0lzSW1WNGNDSTZNVGM1TkRrMk9ETXhPU3dpYm1KbUlqb3hOemswT1RZME56RTVMQ0p3WVhSb0lqb2ljbVZzWldGelpXRnpjMlYwY0hKdlpIVmpkR2x2Ymk1aWJHOWlMbU52Y21VdWQybHVaRzkzY3k1dVpYUWlmUS5CWWhTZGVncmUxeFg1VWdZaUpSUDdnRDJNVVZPMXlERWRQZWlSR0JCdmZZJnJlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249YXR0YWNobWVudCUzQiUyMGZpbGVuYW1lJTNEQWNlcnZvLVNldHVwLTEuOC4wLXg2NC5leGUmcmVzcG9uc2UtY29udGVudC10eXBlPWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFt",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.8.0",
+    "publishedAt": "2026-11-18T01:17:30.429Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.8.0/Acervo-Setup-1.8.0-x64.exe",
+    "sha256": "ea4f572c006d2b84d6eeab58c0d9155540361b1588395b02792ff324eaedd2e2",
+    "mandatory": false,
+    "notes": [
+      "Nova seção Focos: prática deliberada com revisão espaçada, como no app Focos.",
+      "Até três focos por vez; marque de 1 a 5 e o sistema decide quando cada um volta.",
+      "Botão direito numa cena ou obra → “Usar como referência de foco”, sem copiar o arquivo.",
+      "Importe seus focos do app Focos (botão “Exportar para o Acervo” nele), com imagens e histórico.",
+      "O Prisma Art abre numa aba, com login guardado; “Abrir no Prisma” não vai mais para o navegador.",
+      "Sites abertos numa aba continuam vivos ao trocar de aba; links de nova janela viram aba nova.",
+      "Atalhos e voltar/avançar funcionam também com o foco dentro de um site."
+    ]
+  }
+}
