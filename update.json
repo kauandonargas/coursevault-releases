@@ -1,18 +1,12 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.8.0",
-  "publishedAt": "2026-11-18T01:19:30Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.8.0/Acervo-Setup-1.8.0-x64.exe",
-  "sha256": "ea4f572c006d2b84d6eeab58c0d9155540361b1588395b02792ff324eaedd2e2",
+  "version": "1.8.1",
+  "publishedAt": "2026-11-18T01:54:37Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.8.1/Acervo-Setup-1.8.1-x64.exe",
+  "sha256": "6434fe85a3bbc054b59afacce1708ecc88cd55097f4ccb45e94d242f481fd49e",
   "mandatory": false,
   "notes": [
-    "Nova seção Focos: prática deliberada com revisão espaçada, como no app Focos.",
-    "Até três focos por vez; marque de 1 a 5 e o sistema decide quando cada um volta.",
-    "Botão direito numa cena ou obra → “Usar como referência de foco”, sem copiar o arquivo.",
-    "Importe seus focos do app Focos (botão “Exportar para o Acervo” nele), com imagens e histórico.",
-    "O Prisma Art abre numa aba, com login guardado; “Abrir no Prisma” não vai mais para o navegador.",
-    "Sites abertos numa aba continuam vivos ao trocar de aba; links de nova janela viram aba nova.",
-    "Atalhos e voltar/avançar funcionam também com o foco dentro de um site."
+    "O editor de foco abre centralizado sobre a janela inteira, sem ficar cortado."
   ]
 }
