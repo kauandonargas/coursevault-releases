@@ -1,13 +1,16 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.10.1",
-  "publishedAt": "2026-11-18T03:07:35Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.10.1/Acervo-Setup-1.10.1-x64.exe",
-  "sha256": "46121d239e272afaaacf798ef1d2f64a315e7e0b824e2ce42d198a0d1abeb541",
+  "version": "1.11.0",
+  "publishedAt": "2026-11-18T05:09:24Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.11.0/Acervo-Setup-1.11.0-x64.exe",
+  "sha256": "768cd5f61f0c4c8b48baff639ced5f98001bd3e9dca1e4e37506e2fdbf7b0cc8",
   "mandatory": false,
   "notes": [
-    "A seção Fundamentos saiu; as anotações de fundamentos ficam no Notion.",
-    "Focos volta a ser como na 1.9.0, sem o campo de fundamento."
+    "“Hoje” mostra só um foco: o mais importante do dia, em destaque.",
+    "Depois de marcar a nota, aparece “Praticar mais um” enquanto houver focos disponíveis hoje.",
+    "Sem mais focos para hoje, dá para adiantar um dos próximos.",
+    "Os focos feitos no dia ficam listados embaixo, com Desfazer.",
+    "O aviso de confirmação volta a aparecer no rodapé da janela."
   ]
 }
