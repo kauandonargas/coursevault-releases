@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.7.1",
-  "publishedAt": "2026-11-18T00:21:48Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.1/Acervo-Setup-1.7.1-x64.exe",
-  "sha256": "8510405673e8ac86afd3d3b3e281a19e04de51f4e78d1e2477ea7171cee85af2",
+  "version": "1.7.2",
+  "publishedAt": "2026-11-18T00:33:05Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.2/Acervo-Setup-1.7.2-x64.exe",
+  "sha256": "81e236dc55512e5d3b131b3eff95e23d1bf82545c3a22937a6f91ba10ea35279",
   "mandatory": false,
   "notes": [
-    "A barra de abas fica sempre no topo, acima de tudo.",
-    "O visualizador de imagens e os diálogos abrem abaixo dela, sem ficar por baixo dos botões de minimizar, maximizar e fechar."
+    "Ao clicar num vídeo ou aula, ele já começa a tocar (inclusive o próximo, quando um termina).",
+    "Voltar a uma aba, navegar pelo histórico ou reabrir o Acervo mantém o vídeo pausado no ponto salvo."
   ]
 }
