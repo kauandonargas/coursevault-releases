@@ -1,0 +1,16 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzMyNzNjNTgxLTkxYzItNDMyZS04YTFkLWVhNTMzNjcxZmIyMz9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMSUzQTIxJTNBMjlaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjcuMi14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0xOFQwMCUzQTIxJTNBMjVaJnNrZT0yMDI2LTExLTE4VDAxJTNBMjElM0EyOVomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPWJJRjFxN2tsV2h0WjkyRkQ1RCUyRkEwJTJGM2tWMHlaSUZZUEtwSUp6UkN2RERZJTNEJmp3dD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUpuYVhSb2RXSXVZMjl0SWl3aVlYVmtJam9pY21Wc1pXRnpaUzFoYzNObGRITXVaMmwwYUhWaWRYTmxjbU52Ym5SbGJuUXVZMjl0SWl3aWEyVjVJam9pYTJWNU1TSXNJbVY0Y0NJNk1UYzVORGsyTlRVMk5Dd2libUptSWpveE56azBPVFl4T1RZMExDSndZWFJvSWpvaWNtVnNaV0Z6WldGemMyVjBjSEp2WkhWamRHbHZiaTVpYkc5aUxtTnZjbVV1ZDJsdVpHOTNjeTV1WlhRaWZRLmFzR0xKSS1MNEtndTBjejBWWjV3dldXX2FGOS1FNjc0NGxVbjliUlN4cW8mcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1hdHRhY2htZW50JTNCJTIwZmlsZW5hbWUlM0RBY2Vydm8tU2V0dXAtMS43LjIteDY0LmV4ZSZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0=",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.7.2",
+    "publishedAt": "2026-11-18T00:31:15.319Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.2/Acervo-Setup-1.7.2-x64.exe",
+    "sha256": "81e236dc55512e5d3b131b3eff95e23d1bf82545c3a22937a6f91ba10ea35279",
+    "mandatory": false,
+    "notes": [
+      "Ao clicar num vídeo ou aula, ele já começa a tocar (inclusive o próximo, quando um termina).",
+      "Voltar a uma aba, navegar pelo histórico ou reabrir o Acervo mantém o vídeo pausado no ponto salvo."
+    ]
+  }
+}
