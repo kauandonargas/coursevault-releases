@@ -1,0 +1,15 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzczNTc0MjQ2LTk0ZGQtNGY0MC04MTJhLWZjYmI0NDI3MGMyMj9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMiUzQTQ5JTNBMThaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjguMS14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0xOFQwMSUzQTQ4JTNBMjRaJnNrZT0yMDI2LTExLTE4VDAyJTNBNDklM0ExOFomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPTdQMHVuY1NVSkhOYmVEc0lFdnpucWVZZjdWd2NRdCUyQnolMkZrcVBBNFYzM1JBJTNEJmp3dD1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUpuYVhSb2RXSXVZMjl0SWl3aVlYVmtJam9pY21Wc1pXRnpaUzFoYzNObGRITXVaMmwwYUhWaWRYTmxjbU52Ym5SbGJuUXVZMjl0SWl3aWEyVjVJam9pYTJWNU1TSXNJbVY0Y0NJNk1UYzVORGszTURRek9Td2libUptSWpveE56azBPVFkyT0RNNUxDSndZWFJvSWpvaWNtVnNaV0Z6WldGemMyVjBjSEp2WkhWamRHbHZiaTVpYkc5aUxtTnZjbVV1ZDJsdVpHOTNjeTV1WlhRaWZRLksxYjhIU0pIaS1xaHJhaWtnM2FnNGc2NVozT2RyU3N3VmZlamFFNHNtQ1EmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1hdHRhY2htZW50JTNCJTIwZmlsZW5hbWUlM0RBY2Vydm8tU2V0dXAtMS44LjEteDY0LmV4ZSZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0=",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.8.1",
+    "publishedAt": "2026-11-18T01:53:12.585Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.8.1/Acervo-Setup-1.8.1-x64.exe",
+    "sha256": "6434fe85a3bbc054b59afacce1708ecc88cd55097f4ccb45e94d242f481fd49e",
+    "mandatory": false,
+    "notes": [
+      "O editor de foco abre centralizado sobre a janela inteira, sem ficar cortado."
+    ]
+  }
+}
