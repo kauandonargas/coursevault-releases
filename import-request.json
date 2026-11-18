@@ -1,0 +1,18 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5Lzk5ZDgyY2Y1LWMwMmItNDllMS1iYzM5LTE1OTIzZTdlNTBkMz9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMiUzQTQ2JTNBNTRaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjkuMC14NjQuZXhlJnJzY3Q9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0mc2tvaWQ9OTZjMmQ0MTAtNTcxMS00M2ExLWFlZGQtYWIxOTQ3YWE3YWIwJnNrdGlkPTM5OGE2NjU0LTk5N2ItNDdlOS1iMTJiLTk1MTViODk2YjRkZSZza3Q9MjAyNi0xMS0xOFQwMSUzQTQ2JTNBNDZaJnNrZT0yMDI2LTExLTE4VDAyJTNBNDYlM0E1NFomc2tzPWImc2t2PTIwMTgtMTEtMDkmc2lnPXdqNnR4SlBqUWo4eGxlOWd0bGJBZndoNzhud3EzVzNaZGk4TmphcGJKblUlM0Qmand0PWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSm5hWFJvZFdJdVkyOXRJaXdpWVhWa0lqb2ljbVZzWldGelpTMWhjM05sZEhNdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRJaXdpYTJWNUlqb2lhMlY1TVNJc0ltVjRjQ0k2TVRjNU5EazNNRGszT0N3aWJtSm1Jam94TnprME9UWTNNemM0TENKd1lYUm9Jam9pY21Wc1pXRnpaV0Z6YzJWMGNISnZaSFZqZEdsdmJpNWliRzlpTG1OdmNtVXVkMmx1Wkc5M2N5NXVaWFFpZlEuRFpyMGw2eFAzUGpjUjF4dUg3alRISlVZZFIyMTdQb3gxemI1NFVLVFVWNCZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0IlMjBmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjkuMC14NjQuZXhlJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRm9jdGV0LXN0cmVhbQ==",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.9.0",
+    "publishedAt": "2026-11-18T02:01:59.188Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.9.0/Acervo-Setup-1.9.0-x64.exe",
+    "sha256": "b1682faf2ae9792ca1674c766fa90f47de161e8e815d6892768d88d62150f12b",
+    "mandatory": false,
+    "notes": [
+      "O Prisma Art saiu do Acervo: nada de login nem de parte social dentro dele.",
+      "Saíram também os vínculos “Abrir no Prisma” nas aulas e nos PDFs.",
+      "Abas do Prisma que estavam abertas não voltam ao reabrir.",
+      "Focos fica como o lugar único da prática deliberada, para você montar do zero."
+    ]
+  }
+}
