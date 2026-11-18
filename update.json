@@ -1,19 +1,13 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.7.0",
-  "publishedAt": "2026-11-17T23:58:52Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.0/Acervo-Setup-1.7.0-x64.exe",
-  "sha256": "3ef562d80e9d5f2d6278218daf3d9ed5ee4c33c6c8dfc0e53c1c4357b6399e96",
+  "version": "1.7.1",
+  "publishedAt": "2026-11-18T00:21:48Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.7.1/Acervo-Setup-1.7.1-x64.exe",
+  "sha256": "8510405673e8ac86afd3d3b3e281a19e04de51f4e78d1e2477ea7171cee85af2",
   "mandatory": false,
   "notes": [
-    "Arraste uma aba para fora da barra: ela vira uma janela nova onde você soltar, inclusive em outro monitor.",
-    "Arraste uma aba até a barra de outra janela para juntá-las; a janela que ficar vazia fecha.",
-    "Ctrl+N abre uma janela nova; o menu da aba tem “Mover para nova janela”.",
-    "Arraste as abas ao longo da barra para reordenar.",
-    "Progresso, nomes, itens ocultos e configurações ficam iguais em todas as janelas, na hora.",
-    "Reanalisar uma seção numa janela atualiza as outras.",
-    "Ao reabrir o Acervo, as janelas voltam com as mesmas abas, cada uma no seu monitor.",
-    "A página Nova aba ficou só com a busca e as cinco seções."
+    "A barra de abas fica sempre no topo, acima de tudo.",
+    "O visualizador de imagens e os diálogos abrem abaixo dela, sem ficar por baixo dos botões de minimizar, maximizar e fechar."
   ]
 }
