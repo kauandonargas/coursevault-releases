@@ -1,0 +1,19 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzlmYmQ4M2NiLTI1YWMtNGZkYy1iZjAxLWZiMDJmNjg2ZTY2ZT9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOFQwMyUzQTM0JTNBNDdaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjEwLjAteDY0LmV4ZSZyc2N0PWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFtJnNrb2lkPTk2YzJkNDEwLTU3MTEtNDNhMS1hZWRkLWFiMTk0N2FhN2FiMCZza3RpZD0zOThhNjY1NC05OTdiLTQ3ZTktYjEyYi05NTE1Yjg5NmI0ZGUmc2t0PTIwMjYtMTEtMThUMDIlM0EzMyUzQTUxWiZza2U9MjAyNi0xMS0xOFQwMyUzQTM0JTNBNDdaJnNrcz1iJnNrdj0yMDE4LTExLTA5JnNpZz1NdjBCeEppcHd2azM3WmNEa0JVcXVJaSUyRjl5Rkc1T3JvTSUyQkNyVDlXOUhGdyUzRCZqd3Q9ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjM01pT2lKbmFYUm9kV0l1WTI5dElpd2lZWFZrSWpvaWNtVnNaV0Z6WlMxaGMzTmxkSE11WjJsMGFIVmlkWE5sY21OdmJuUmxiblF1WTI5dElpd2lhMlY1SWpvaWEyVjVNU0lzSW1WNGNDSTZNVGM1TkRrM016a3hNeXdpYm1KbUlqb3hOemswT1Rjd016RXpMQ0p3WVhSb0lqb2ljbVZzWldGelpXRnpjMlYwY0hKdlpIVmpkR2x2Ymk1aWJHOWlMbU52Y21VdWQybHVaRzkzY3k1dVpYUWlmUS55blMya1VENUhKeWREVXJuNmR1dGc3T3ZCSnhaVmJLb0tud2FnNmk2TkFjJnJlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249YXR0YWNobWVudCUzQiUyMGZpbGVuYW1lJTNEQWNlcnZvLVNldHVwLTEuMTAuMC14NjQuZXhlJnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1hcHBsaWNhdGlvbiUyRm9jdGV0LXN0cmVhbQ==",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.10.0",
+    "publishedAt": "2026-11-18T02:51:01.860Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.10.0/Acervo-Setup-1.10.0-x64.exe",
+    "sha256": "d5942ac5ce2f81abeeab31e4eaf5a13bf744fa68772612f815be15adcb88976f",
+    "mandatory": false,
+    "notes": [
+      "Nova seção Fundamentos: crie os seus (Luz, Valores…) e anote o que observa em cada um.",
+      "Anotações com texto e imagem: escolha, solte, cole com Ctrl+V ou use uma cena/obra do Acervo.",
+      "Botão direito numa cena ou obra → “Anotar num fundamento”.",
+      "“Virar foco” transforma uma observação numa regra para praticar em Focos.",
+      "Cada fundamento mostra as regras (focos) que saíram dele; os focos mostram o fundamento."
+    ]
+  }
+}
