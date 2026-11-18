@@ -1,16 +1,13 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.10.0",
-  "publishedAt": "2026-11-18T02:52:31Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.10.0/Acervo-Setup-1.10.0-x64.exe",
-  "sha256": "d5942ac5ce2f81abeeab31e4eaf5a13bf744fa68772612f815be15adcb88976f",
+  "version": "1.10.1",
+  "publishedAt": "2026-11-18T03:07:35Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.10.1/Acervo-Setup-1.10.1-x64.exe",
+  "sha256": "46121d239e272afaaacf798ef1d2f64a315e7e0b824e2ce42d198a0d1abeb541",
   "mandatory": false,
   "notes": [
-    "Nova seção Fundamentos: crie os seus (Luz, Valores…) e anote o que observa em cada um.",
-    "Anotações com texto e imagem: escolha, solte, cole com Ctrl+V ou use uma cena/obra do Acervo.",
-    "Botão direito numa cena ou obra → “Anotar num fundamento”.",
-    "“Virar foco” transforma uma observação numa regra para praticar em Focos.",
-    "Cada fundamento mostra as regras (focos) que saíram dele; os focos mostram o fundamento."
+    "A seção Fundamentos saiu; as anotações de fundamentos ficam no Notion.",
+    "Focos volta a ser como na 1.9.0, sem o campo de fundamento."
   ]
 }
