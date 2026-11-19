@@ -1,16 +1,14 @@
 {
   "schemaVersion": 1,
   "product": "Acervo",
-  "version": "1.11.0",
-  "publishedAt": "2026-11-18T05:09:24Z",
-  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.11.0/Acervo-Setup-1.11.0-x64.exe",
-  "sha256": "768cd5f61f0c4c8b48baff639ced5f98001bd3e9dca1e4e37506e2fdbf7b0cc8",
+  "version": "1.12.0",
+  "publishedAt": "2026-11-19T03:09:46Z",
+  "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.12.0/Acervo-Setup-1.12.0-x64.exe",
+  "sha256": "7447123ccf39b7542ef2a85f021ac266877b36b876940e92659ebca9c0870094",
   "mandatory": false,
   "notes": [
-    "“Hoje” mostra só um foco: o mais importante do dia, em destaque.",
-    "Depois de marcar a nota, aparece “Praticar mais um” enquanto houver focos disponíveis hoje.",
-    "Sem mais focos para hoje, dá para adiantar um dos próximos.",
-    "Os focos feitos no dia ficam listados embaixo, com Desfazer.",
-    "O aviso de confirmação volta a aparecer no rodapé da janela."
+    "Trocar de aba com um vídeo tocando leva o vídeo para o miniplayer, e ele continua tocando.",
+    "Ao voltar para a aba do vídeo, ele volta para a tela cheia sem recomeçar.",
+    "Vídeo pausado e aba do vídeo fechada continuam como antes."
   ]
 }
