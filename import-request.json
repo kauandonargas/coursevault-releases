@@ -1,0 +1,17 @@
+{
+  "assetUrlBase64": "aHR0cHM6Ly9yZWxlYXNlLWFzc2V0cy5naXRodWJ1c2VyY29udGVudC5jb20vZ2l0aHViLXByb2R1Y3Rpb24tcmVsZWFzZS1hc3NldC8xNDE5OTkzMzQ5LzJlMmZhMDRhLWM1ZDUtNDRkMi05ODA1LWM4OTg5M2EyOTQ0OT9zcD1yJnN2PTIwMTgtMTEtMDkmc3I9YiZzcHI9aHR0cHMmc2U9MjAyNi0xMS0xOVQwMyUzQTU5JTNBNTZaJnJzY2Q9YXR0YWNobWVudCUzQitmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjEyLjAteDY0LmV4ZSZyc2N0PWFwcGxpY2F0aW9uJTJGb2N0ZXQtc3RyZWFtJnNrb2lkPTk2YzJkNDEwLTU3MTEtNDNhMS1hZWRkLWFiMTk0N2FhN2FiMCZza3RpZD0zOThhNjY1NC05OTdiLTQ3ZTktYjEyYi05NTE1Yjg5NmI0ZGUmc2t0PTIwMjYtMTEtMTlUMDIlM0E1OSUzQTAyWiZza2U9MjAyNi0xMS0xOVQwMyUzQTU5JTNBNTZaJnNrcz1iJnNrdj0yMDE4LTExLTA5JnNpZz1VMDVBZDZvV293JTJCMGdKQnFTdWdrZndDNG54N0kxMWZnQzlQZ1FyODZvRmMlM0Qmand0PWV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpwYzNNaU9pSm5hWFJvZFdJdVkyOXRJaXdpWVhWa0lqb2ljbVZzWldGelpTMWhjM05sZEhNdVoybDBhSFZpZFhObGNtTnZiblJsYm5RdVkyOXRJaXdpYTJWNUlqb2lhMlY1TVNJc0ltVjRjQ0k2TVRjNU5UQTJNVE0xTVN3aWJtSm1Jam94TnprMU1EVTNOelV4TENKd1lYUm9Jam9pY21Wc1pXRnpaV0Z6YzJWMGNISnZaSFZqZEdsdmJpNWliRzlpTG1OdmNtVXVkMmx1Wkc5M2N5NXVaWFFpZlEuQThNaGZlUW5OTEl1X3JHYnBvZVBVVVk2NXBWTFpNUlh4UVlpS2p0R0ZBYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWF0dGFjaG1lbnQlM0IlMjBmaWxlbmFtZSUzREFjZXJ2by1TZXR1cC0xLjEyLjAteDY0LmV4ZSZyZXNwb25zZS1jb250ZW50LXR5cGU9YXBwbGljYXRpb24lMkZvY3RldC1zdHJlYW0=",
+  "manifest": {
+    "schemaVersion": 1,
+    "product": "Acervo",
+    "version": "1.12.0",
+    "publishedAt": "2026-11-19T03:08:25.377Z",
+    "installerUrl": "https://github.com/kauandonargas/coursevault-releases/releases/download/v1.12.0/Acervo-Setup-1.12.0-x64.exe",
+    "sha256": "7447123ccf39b7542ef2a85f021ac266877b36b876940e92659ebca9c0870094",
+    "mandatory": false,
+    "notes": [
+      "Trocar de aba com um vídeo tocando leva o vídeo para o miniplayer, e ele continua tocando.",
+      "Ao voltar para a aba do vídeo, ele volta para a tela cheia sem recomeçar.",
+      "Vídeo pausado e aba do vídeo fechada continuam como antes."
+    ]
+  }
+}
